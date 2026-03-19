@@ -13,6 +13,7 @@ variables:
   DOCKER_HOST: tcp://docker:2375
   DOCKER_TLS_CERTDIR: ""
   PYTHONPATH: "."
+  DATATOURISME_API_KEY: "dummy-test-key"
 
 before_script:
   - python -V
