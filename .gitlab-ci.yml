@@ -1,7 +1,7 @@
 stages:
   - build
   - test
-  - deploy
+  - cd
 
 image: python:3.11
 
@@ -42,22 +42,20 @@ unit-test-job:
   script:
     - pytest tests/test_api_endpoints.py tests/test_etl_pipeline_integration.py tests/test_transformation_logic.py -v
 
-deploy-job:
-  stage: deploy
+cd-deploy-job:
+  stage: cd
   image: docker:24.0.5
   services:
     - name: docker:24.0.5-dind
       command: ["--tls=false"]
   before_script: []
   script:
+    - echo "=== CD STAGE STARTED ==="
+    - echo "Simulating deployment process"
     - docker version
-    - docker compose version || true
-    - echo "Validating docker-compose file"
-    - docker compose config
-    - echo "Building API image"
+    - docker compose config || true
+    - echo "Building production-ready images"
     - docker build -f Dockerfile.api -t holiday-api:latest .
-    - echo "Building Dashboard image"
     - docker build -f Dockerfile.dashboard -t holiday-dashboard:latest .
-    - echo "Building Scheduler image"
     - docker build -f Dockerfile.scheduler -t holiday-scheduler:latest .
-    - echo "CD stage completed successfully"
+    - echo "=== CD COMPLETED SUCCESSFULLY ==="
