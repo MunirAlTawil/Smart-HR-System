@@ -1,0 +1,21 @@
+stages:
+  - lint
+  - test
+
+default:
+  image: python:3.11
+
+before_script:
+  - python -V
+  - pip install --upgrade pip
+  - pip install -r requirements.txt
+
+lint:
+  stage: lint
+  script:
+    - PYTHONPATH=. flake8 src/ tests/ --count --select=E9,F63,F7,F82 --show-source --statistics
+
+test:
+  stage: test
+  script:
+    - PYTHONPATH=. pytest tests/ -v
