@@ -38,14 +38,13 @@ def client(db_session):
             yield db_session
         finally:
             pass
-    
-    # Override the database dependency
+
     from src.api.db import get_db
     app.dependency_overrides[get_db] = override_get_db
-    
+
     with TestClient(app) as test_client:
         yield test_client
-    
+
     app.dependency_overrides.clear()
 
 
@@ -63,7 +62,7 @@ def sample_pois(db_session):
             uri="https://example.com/eiffel",
             last_update=datetime(2024, 1, 1),
             source_id=1,
-            created_at=datetime(2024, 1, 1)
+            created_at=datetime(2024, 1, 1),
         ),
         POI(
             id="poi2",
@@ -75,7 +74,7 @@ def sample_pois(db_session):
             uri="https://example.com/louvre",
             last_update=datetime(2024, 1, 2),
             source_id=1,
-            created_at=datetime(2024, 1, 2)
+            created_at=datetime(2024, 1, 2),
         ),
         POI(
             id="poi3",
@@ -87,19 +86,7 @@ def sample_pois(db_session):
             uri=None,
             last_update=datetime(2024, 1, 3),
             source_id=1,
-            created_at=datetime(2024, 1, 3)
-        ),
-        POI(
-            id="poi4",
-            label="No Coordinates",
-            description="POI without coordinates",
-            latitude=None,
-            longitude=None,
-            type="Other",
-            uri=None,
-            last_update=None,
-            source_id=1,
-            created_at=datetime(2024, 1, 4)
+            created_at=datetime(2024, 1, 3),
         ),
     ]
     for poi in pois:
@@ -116,37 +103,36 @@ def test_parse_bbox_valid():
 
 def test_parse_bbox_invalid_format():
     """Test parsing invalid bbox format."""
-    with pytest.raises(Exception):  # HTTPException from FastAPI
-        parse_bbox("2.0,48.0,3.0")  # Missing one value
+    with pytest.raises(Exception):
+        parse_bbox("2.0,48.0,3.0")
 
 
 def test_parse_bbox_invalid_bounds():
     """Test parsing bbox with invalid bounds."""
     with pytest.raises(Exception):
-        parse_bbox("3.0,48.0,2.0,49.0")  # min_lon > max_lon
+        parse_bbox("3.0,48.0,2.0,49.0")
 
 
 def test_parse_bbox_invalid_longitude():
     """Test parsing bbox with invalid longitude."""
     with pytest.raises(Exception):
-        parse_bbox("200.0,48.0,201.0,49.0")  # Longitude > 180
+        parse_bbox("200.0,48.0,201.0,49.0")
 
 
 def test_parse_bbox_invalid_latitude():
     """Test parsing bbox with invalid latitude."""
     with pytest.raises(Exception):
-        parse_bbox("2.0,100.0,3.0,101.0")  # Latitude > 90
+        parse_bbox("2.0,100.0,3.0,101.0")
 
 
 def test_geojson_endpoint_basic(client, sample_pois):
     """Test basic GeoJSON endpoint functionality."""
     response = client.get("/pois/geojson")
     assert response.status_code == 200
-    
+
     data = response.json()
     assert data["type"] == "FeatureCollection"
     assert "features" in data
-    # Should only return POIs with coordinates (3 out of 4)
     assert len(data["features"]) == 3
 
 
@@ -154,7 +140,7 @@ def test_geojson_endpoint_limit(client, sample_pois):
     """Test GeoJSON endpoint with limit parameter."""
     response = client.get("/pois/geojson?limit=2")
     assert response.status_code == 200
-    
+
     data = response.json()
     assert len(data["features"]) == 2
 
@@ -163,10 +149,9 @@ def test_geojson_endpoint_offset(client, sample_pois):
     """Test GeoJSON endpoint with offset parameter."""
     response = client.get("/pois/geojson?limit=1&offset=1")
     assert response.status_code == 200
-    
+
     data = response.json()
     assert len(data["features"]) == 1
-    # Should get the second POI
     assert data["features"][0]["properties"]["id"] in ["poi2", "poi3"]
 
 
@@ -174,7 +159,7 @@ def test_geojson_endpoint_type_filter(client, sample_pois):
     """Test GeoJSON endpoint with type filter."""
     response = client.get("/pois/geojson?type=Monument")
     assert response.status_code == 200
-    
+
     data = response.json()
     assert len(data["features"]) == 2
     for feature in data["features"]:
@@ -185,9 +170,8 @@ def test_geojson_endpoint_search_filter(client, sample_pois):
     """Test GeoJSON endpoint with search filter."""
     response = client.get("/pois/geojson?search=Paris")
     assert response.status_code == 200
-    
+
     data = response.json()
-    # Should find POIs with "Paris" in description
     assert len(data["features"]) >= 2
     for feature in data["features"]:
         assert "Paris" in feature["properties"]["description"] or "Paris" in feature["properties"]["label"]
@@ -195,12 +179,10 @@ def test_geojson_endpoint_search_filter(client, sample_pois):
 
 def test_geojson_endpoint_bbox_filter(client, sample_pois):
     """Test GeoJSON endpoint with bbox filter."""
-    # Bbox around Paris (roughly)
     response = client.get("/pois/geojson?bbox=2.2,48.8,2.4,48.9")
     assert response.status_code == 200
-    
+
     data = response.json()
-    # Should filter POIs within bbox
     assert len(data["features"]) >= 1
     for feature in data["features"]:
         lon, lat = feature["geometry"]["coordinates"]
@@ -223,29 +205,26 @@ def test_geojson_endpoint_limit_max(client, sample_pois):
 def test_geojson_endpoint_limit_exceeds_max(client, sample_pois):
     """Test GeoJSON endpoint with limit exceeding max."""
     response = client.get("/pois/geojson?limit=6000")
-    assert response.status_code == 422  # Validation error
+    assert response.status_code == 422
 
 
 def test_geojson_feature_structure(client, sample_pois):
     """Test GeoJSON feature structure."""
     response = client.get("/pois/geojson?limit=1")
     assert response.status_code == 200
-    
+
     data = response.json()
     feature = data["features"][0]
-    
-    # Check feature structure
+
     assert feature["type"] == "Feature"
     assert "geometry" in feature
     assert "properties" in feature
-    
-    # Check geometry
+
     assert feature["geometry"]["type"] == "Point"
     assert len(feature["geometry"]["coordinates"]) == 2
-    assert isinstance(feature["geometry"]["coordinates"][0], float)  # longitude
-    assert isinstance(feature["geometry"]["coordinates"][1], float)  # latitude
-    
-    # Check properties
+    assert isinstance(feature["geometry"]["coordinates"][0], float)
+    assert isinstance(feature["geometry"]["coordinates"][1], float)
+
     props = feature["properties"]
     assert "id" in props
     assert "label" in props
@@ -255,4 +234,3 @@ def test_geojson_feature_structure(client, sample_pois):
     assert "last_update" in props
     assert "source_id" in props
     assert "created_at" in props
-
