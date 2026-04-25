@@ -161,7 +161,7 @@ vite.config.js
 
 ```bash
 git clone <repository-url>
-cd Smart-HR-Sysestm
+cd Smart-HR-System
 ```
 
 ### 2. Install PHP Dependencies
