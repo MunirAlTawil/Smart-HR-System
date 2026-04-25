@@ -1,0 +1,111 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="640" viewBox="0 0 1000 640">
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#1b4f72"/>
+    </marker>
+    <style>
+      .external { fill:#fdebd0; stroke:#6e2c00; stroke-width:2; rx:12; ry:12; }
+      .process { fill:#d5f5e3; stroke:#1d8348; stroke-width:2.5; rx:18; ry:18; }
+      .store { fill:#ebf5fb; stroke:#1b4f72; stroke-width:2; rx:12; ry:12; }
+      text { font-family: Arial, sans-serif; fill:#1b2631; }
+      .title { font-size:22px; font-weight:bold; }
+      .label { font-size:18px; }
+      .flow { font-size:16px; }
+    </style>
+  </defs>
+
+  <text class="title" x="500" y="40" text-anchor="middle">DFD Level 1 – Talent Acquisition Process</text>
+
+  <rect class="external" x="40" y="110" width="200" height="100"/>
+  <text class="label" x="140" y="160" text-anchor="middle">Candidate</text>
+
+  <rect class="external" x="40" y="440" width="220" height="110"/>
+  <text class="label" x="150" y="490" text-anchor="middle">HR Administrator</text>
+
+  <rect class="store" x="780" y="120" width="180" height="90"/>
+  <text class="label" x="870" y="165" text-anchor="middle">Jobs Table</text>
+
+  <rect class="store" x="780" y="270" width="180" height="90"/>
+  <text class="label" x="870" y="313" text-anchor="middle">Candidates Table</text>
+
+  <rect class="store" x="780" y="420" width="180" height="90"/>
+  <text class="label" x="870" y="463" text-anchor="middle">Applications Table</text>
+
+  <rect class="store" x="780" y="540" width="180" height="70"/>
+  <text class="label" x="870" y="580" text-anchor="middle">Notifications</text>
+
+  <rect class="process" x="300" y="120" width="200" height="100"/>
+  <text class="label" x="400" y="170" text-anchor="middle">P1 Collect</text>
+  <text class="label" x="400" y="195" text-anchor="middle">Application Data</text>
+
+  <rect class="process" x="550" y="120" width="190" height="100"/>
+  <text class="label" x="645" y="170" text-anchor="middle">P2 Persist</text>
+  <text class="label" x="645" y="195" text-anchor="middle">Initial Records</text>
+
+  <rect class="process" x="300" y="260" width="200" height="110"/>
+  <text class="label" x="400" y="315" text-anchor="middle">P3 Invoke Python</text>
+  <text class="label" x="400" y="340" text-anchor="middle">Analysis</text>
+
+  <rect class="process" x="550" y="260" width="190" height="110"/>
+  <text class="label" x="645" y="310" text-anchor="middle">P4 Evaluate</text>
+  <text class="label" x="645" y="335" text-anchor="middle">Match Result</text>
+
+  <rect class="process" x="300" y="430" width="200" height="110"/>
+  <text class="label" x="400" y="485" text-anchor="middle">P5 HR</text>
+  <text class="label" x="400" y="510" text-anchor="middle">Review &amp; Decision</text>
+
+  <rect class="process" x="550" y="430" width="190" height="110"/>
+  <text class="label" x="645" y="485" text-anchor="middle">P6 Notify</text>
+  <text class="label" x="645" y="510" text-anchor="middle">Stakeholders</text>
+
+  <rect class="external" x="540" y="590" width="210" height="40" rx="10" ry="10"/>
+  <text class="flow" x="645" y="615" text-anchor="middle">Python Analysis Service</text>
+
+  <line x1="240" y1="160" x2="300" y2="170" stroke="#1b4f72" stroke-width="2.4" marker-end="url(#arrow)"/>
+  <text class="flow" x="255" y="150">Form data + CV</text>
+
+  <line x1="300" y1="210" x2="240" y2="200" stroke="#1b4f72" stroke-width="2.4" marker-end="url(#arrow)"/>
+  <text class="flow" x="245" y="220">Confirmation</text>
+
+  <line x1="500" y1="170" x2="550" y2="170" stroke="#1b4f72" stroke-width="2.4" marker-end="url(#arrow)"/>
+  <text class="flow" x="520" y="155">Structured data</text>
+
+  <line x1="740" y1="165" x2="690" y2="165" stroke="#1b4f72" stroke-width="2.4" marker-end="url(#arrow)"/>
+  <text class="flow" x="705" y="150">Create job link</text>
+
+  <line x1="640" y1="220" x2="780" y2="165" stroke="#1b4f72" stroke-width="2.4" marker-end="url(#arrow)"/>
+
+  <line x1="500" y1="315" x2="550" y2="315" stroke="#1b4f72" stroke-width="2.4" marker-end="url(#arrow)"/>
+  <text class="flow" x="505" y="300">Analysis result</text>
+
+  <line x1="490" y1="315" x2="300" y2="315" stroke="#1b4f72" stroke-width="2.4" marker-end="url(#arrow)"/>
+  <text class="flow" x="355" y="300">CV file</text>
+
+  <line x1="400" y1="370" x2="400" y2="430" stroke="#1b4f72" stroke-width="2.4" marker-end="url(#arrow)"/>
+  <text class="flow" x="410" y="410">Match summary</text>
+
+  <line x1="240" y1="495" x2="300" y2="495" stroke="#1b4f72" stroke-width="2.4" marker-end="url(#arrow)"/>
+  <text class="flow" x="245" y="480">Status inputs</text>
+
+  <line x1="300" y1="535" x2="240" y2="540" stroke="#1b4f72" stroke-width="2.4" marker-end="url(#arrow)"/>
+  <text class="flow" x="260" y="560">Decision notice</text>
+
+  <line x1="500" y1="495" x2="550" y2="495" stroke="#1b4f72" stroke-width="2.4" marker-end="url(#arrow)"/>
+  <text class="flow" x="510" y="480">Final decision</text>
+
+  <line x1="740" y1="315" x2="690" y2="315" stroke="#1b4f72" stroke-width="2.4" marker-end="url(#arrow)"/>
+  <text class="flow" x="705" y="300">Update candidate</text>
+
+  <line x1="740" y1="465" x2="690" y2="465" stroke="#1b4f72" stroke-width="2.4" marker-end="url(#arrow)"/>
+  <text class="flow" x="705" y="450">Update application</text>
+
+  <line x1="740" y1="580" x2="690" y2="510" stroke="#1b4f72" stroke-width="2.4" marker-end="url(#arrow)"/>
+  <text class="flow" x="690" y="545">Email/SMS</text>
+
+  <line x1="595" y1="590" x2="450" y2="370" stroke="#1b4f72" stroke-width="2.4" marker-end="url(#arrow)"/>
+  <text class="flow" x="510" y="500">CV + job skills</text>
+
+  <line x1="450" y1="370" x2="595" y2="590" stroke="#1b4f72" stroke-width="2.4" marker-end="url(#arrow)"/>
+  <text class="flow" x="520" y="585">JSON result</text>
+</svg>
+

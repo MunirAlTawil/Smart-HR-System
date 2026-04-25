@@ -1,0 +1,123 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="720" viewBox="0 0 1200 720">
+  <defs>
+    <style>
+      .class-box { fill:#ffffff; stroke:#2c3e50; stroke-width:2; }
+      .class-title { font-family: Arial, sans-serif; font-size:18px; font-weight:bold; fill:#2c3e50; }
+      .class-body { font-family: Arial, sans-serif; font-size:16px; fill:#2c3e50; }
+      .association { stroke:#34495e; stroke-width:2; fill:none; }
+      .inheritance { marker-end:url(#triangle); stroke:#34495e; stroke-width:2; fill:none; }
+    </style>
+    <marker id="triangle" markerWidth="12" markerHeight="12" refX="12" refY="6" orient="auto">
+      <polygon points="0 0, 12 6, 0 12" fill="#34495e"/>
+    </marker>
+  </defs>
+
+  <!-- Class Boxes -->
+  <rect class="class-box" x="70" y="60" width="250" height="200" rx="10"/>
+  <line x1="70" y1="100" x2="320" y2="100" stroke="#2c3e50" stroke-width="1.5"/>
+  <line x1="70" y1="160" x2="320" y2="160" stroke="#2c3e50" stroke-width="1.5"/>
+  <text class="class-title" x="195" y="90" text-anchor="middle">User</text>
+  <text class="class-body" x="85" y="130">+ id: int</text>
+  <text class="class-body" x="85" y="150">+ name: string</text>
+  <text class="class-body" x="85" y="180">+ email: string</text>
+  <text class="class-body" x="85" y="200">+ password: string</text>
+  <text class="class-body" x="85" y="220">+ role: enum</text>
+  <text class="class-body" x="85" y="240">+ applications(): hasMany</text>
+
+  <rect class="class-box" x="460" y="40" width="260" height="220" rx="10"/>
+  <line x1="460" y1="80" x2="720" y2="80" stroke="#2c3e50" stroke-width="1.5"/>
+  <line x1="460" y1="160" x2="720" y2="160" stroke="#2c3e50" stroke-width="1.5"/>
+  <text class="class-title" x="590" y="70" text-anchor="middle">Candidate</text>
+  <text class="class-body" x="475" y="120">+ id: int</text>
+  <text class="class-body" x="475" y="140">+ user_id: int?</text>
+  <text class="class-body" x="475" y="180">+ name: string</text>
+  <text class="class-body" x="475" y="200">+ email: string</text>
+  <text class="class-body" x="475" y="220">+ phone: string</text>
+  <text class="class-body" x="475" y="240">+ resume_path: string</text>
+  <text class="class-body" x="475" y="260">+ approval_status: enum</text>
+  <text class="class-body" x="475" y="280">+ applications(): hasMany</text>
+
+  <rect class="class-box" x="840" y="60" width="270" height="220" rx="10"/>
+  <line x1="840" y1="100" x2="1110" y2="100" stroke="#2c3e50" stroke-width="1.5"/>
+  <line x1="840" y1="180" x2="1110" y2="180" stroke="#2c3e50" stroke-width="1.5"/>
+  <text class="class-title" x="975" y="90" text-anchor="middle">Job</text>
+  <text class="class-body" x="855" y="130">+ id: int</text>
+  <text class="class-body" x="855" y="150">+ title: string</text>
+  <text class="class-body" x="855" y="170">+ description: text</text>
+  <text class="class-body" x="855" y="200">+ location: string</text>
+  <text class="class-body" x="855" y="220">+ skills: json</text>
+  <text class="class-body" x="855" y="240">+ status: enum</text>
+  <text class="class-body" x="855" y="260">+ applications(): hasMany</text>
+
+  <rect class="class-box" x="200" y="320" width="270" height="230" rx="10"/>
+  <line x1="200" y1="360" x2="470" y2="360" stroke="#2c3e50" stroke-width="1.5"/>
+  <line x1="200" y1="460" x2="470" y2="460" stroke="#2c3e50" stroke-width="1.5"/>
+  <text class="class-title" x="335" y="350" text-anchor="middle">Application</text>
+  <text class="class-body" x="215" y="400">+ id: int</text>
+  <text class="class-body" x="215" y="420">+ job_id: int</text>
+  <text class="class-body" x="215" y="440">+ candidate_id: int</text>
+  <text class="class-body" x="215" y="480">+ match_score: float</text>
+  <text class="class-body" x="215" y="500">+ matched_skills: json</text>
+  <text class="class-body" x="215" y="520">+ missing_skills: json</text>
+  <text class="class-body" x="215" y="540">+ status: enum</text>
+
+  <rect class="class-box" x="580" y="320" width="250" height="210" rx="10"/>
+  <line x1="580" y1="360" x2="830" y2="360" stroke="#2c3e50" stroke-width="1.5"/>
+  <line x1="580" y1="430" x2="830" y2="430" stroke="#2c3e50" stroke-width="1.5"/>
+  <text class="class-title" x="705" y="350" text-anchor="middle">Employee</text>
+  <text class="class-body" x="595" y="400">+ id: int</text>
+  <text class="class-body" x="595" y="420">+ candidate_id: int</text>
+  <text class="class-body" x="595" y="440">+ job_id: int</text>
+  <text class="class-body" x="595" y="460">+ hired_at: date</text>
+  <text class="class-body" x="595" y="480">+ performance_score: float?</text>
+
+  <rect class="class-box" x="900" y="320" width="250" height="210" rx="10"/>
+  <line x1="900" y1="360" x2="1150" y2="360" stroke="#2c3e50" stroke-width="1.5"/>
+  <line x1="900" y1="430" x2="1150" y2="430" stroke="#2c3e50" stroke-width="1.5"/>
+  <text class="class-title" x="1025" y="350" text-anchor="middle">Contact</text>
+  <text class="class-body" x="915" y="400">+ id: int</text>
+  <text class="class-body" x="915" y="420">+ name: string</text>
+  <text class="class-body" x="915" y="440">+ email: string</text>
+  <text class="class-body" x="915" y="460">+ subject: string</text>
+  <text class="class-body" x="915" y="480">+ message: text</text>
+  <text class="class-body" x="915" y="500">+ handled_by: int?</text>
+
+  <rect class="class-box" x="450" y="560" width="290" height="120" rx="10"/>
+  <line x1="450" y1="600" x2="740" y2="600" stroke="#2c3e50" stroke-width="1.5"/>
+  <text class="class-title" x="595" y="590" text-anchor="middle">ResumeAnalysisResult</text>
+  <text class="class-body" x="465" y="630">+ match: float</text>
+  <text class="class-body" x="465" y="650">+ matched_skills: array</text>
+  <text class="class-body" x="465" y="670">+ missing_skills: array</text>
+  <text class="class-body" x="465" y="690">+ raw_output: text</text>
+
+  <!-- Relationships -->
+  <line class="inheritance" x1="320" y1="160" x2="460" y2="160"/>
+  <text class="class-body" x="365" y="150">extends</text>
+
+  <line class="association" x1="330" y1="320" x2="330" y2="260"/>
+  <line class="association" x1="330" y1="260" x2="470" y2="260"/>
+  <text class="class-body" x="360" y="250">1</text>
+  <text class="class-body" x="310" y="335">0..*</text>
+
+  <line class="association" x1="470" y1="420" x2="580" y2="420"/>
+  <text class="class-body" x="485" y="405">0..*</text>
+  <text class="class-body" x="555" y="405">1</text>
+
+  <line class="association" x1="470" y1="380" x2="840" y2="220"/>
+  <text class="class-body" x="765" y="250">job_id</text>
+  <text class="class-body" x="500" y="350">0..*</text>
+  <text class="class-body" x="820" y="220">1</text>
+
+  <line class="association" x1="720" y1="320" x2="720" y2="260"/>
+  <text class="class-body" x="730" y="290">0..1</text>
+  <text class="class-body" x="730" y="345">0..1</text>
+
+  <line class="association" x1="1120" y1="430" x2="1180" y2="430"/>
+  <line class="association" x1="1180" y1="430" x2="1180" y2="220"/>
+  <line class="association" x1="1180" y1="220" x2="1110" y2="220"/>
+  <text class="class-body" x="1125" y="220">handled_by</text>
+
+  <line class="association" x1="335" y1="550" x2="595" y2="560"/>
+  <text class="class-body" x="380" y="560">hasOne</text>
+</svg>
+

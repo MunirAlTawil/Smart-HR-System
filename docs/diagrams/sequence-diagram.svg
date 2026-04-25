@@ -1,0 +1,85 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="680" viewBox="0 0 1100 680">
+  <defs>
+    <style>
+      .lifeline { stroke:#34495e; stroke-width:2; stroke-dasharray:9 6; }
+      .actor { font-family: Arial, sans-serif; font-size:18px; fill:#2c3e50; }
+      .msg { stroke:#1f618d; stroke-width:2; marker-end:url(#arrowhead); }
+      .activation { fill:#aed6f1; stroke:#1f618d; stroke-width:1.5; }
+      .note { fill:#fcf3cf; stroke:#b7950b; stroke-width:1.5; }
+      .note-text { font-family: Arial, sans-serif; font-size:14px; fill:#7d6608; }
+    </style>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#1f618d"/>
+    </marker>
+  </defs>
+
+  <text class="actor" x="80" y="40" text-anchor="middle">Candidate</text>
+  <rect x="50" y="50" width="60" height="30" fill="#ecf0f1" stroke="#34495e" stroke-width="2"/>
+  <line class="lifeline" x1="80" y1="80" x2="80" y2="640"/>
+
+  <text class="actor" x="300" y="40" text-anchor="middle">Web UI</text>
+  <rect x="260" y="50" width="80" height="30" fill="#ecf0f1" stroke="#34495e" stroke-width="2"/>
+  <line class="lifeline" x1="300" y1="80" x2="300" y2="640"/>
+
+  <text class="actor" x="530" y="40" text-anchor="middle">ApplicationController</text>
+  <rect x="470" y="50" width="120" height="30" fill="#ecf0f1" stroke="#34495e" stroke-width="2"/>
+  <line class="lifeline" x1="530" y1="80" x2="530" y2="640"/>
+
+  <text class="actor" x="740" y="40" text-anchor="middle">Storage</text>
+  <rect x="710" y="50" width="60" height="30" fill="#ecf0f1" stroke="#34495e" stroke-width="2"/>
+  <line class="lifeline" x1="740" y1="80" x2="740" y2="640"/>
+
+  <text class="actor" x="900" y="40" text-anchor="middle">Python Service</text>
+  <rect x="860" y="50" width="80" height="30" fill="#ecf0f1" stroke="#34495e" stroke-width="2"/>
+  <line class="lifeline" x1="900" y1="80" x2="900" y2="640"/>
+
+  <rect class="activation" x="290" y="110" width="20" height="70"/>
+  <line class="msg" x1="80" y1="120" x2="300" y2="120"/>
+  <text x="180" y="110" font-family="Arial" font-size="16" fill="#1f618d">Fill application form</text>
+
+  <line class="msg" x1="300" y1="150" x2="530" y2="150"/>
+  <text x="390" y="140" font-family="Arial" font-size="16" fill="#1f618d">POST /apply</text>
+
+  <rect class="activation" x="520" y="150" width="20" height="360"/>
+
+  <rect class="activation" x="730" y="200" width="20" height="70"/>
+  <line class="msg" x1="530" y1="200" x2="740" y2="200"/>
+  <text x="580" y="190" font-family="Arial" font-size="16" fill="#1f618d">Store resume file</text>
+
+  <rect class="note" x="760" y="210" width="180" height="70" rx="10"/>
+  <text class="note-text" x="770" y="235">Resume stored with unique name</text>
+  <text class="note-text" x="770" y="255">and public link for download.</text>
+
+  <line class="msg" x1="740" y1="240" x2="530" y2="240"/>
+  <text x="650" y="230" font-family="Arial" font-size="16" fill="#1f618d">Storage path</text>
+
+  <rect class="activation" x="890" y="290" width="20" height="120"/>
+  <line class="msg" x1="530" y1="290" x2="900" y2="290"/>
+  <text x="620" y="280" font-family="Arial" font-size="16" fill="#1f618d">Call analyze_cv.py</text>
+
+  <line class="msg" x1="900" y1="340" x2="530" y2="340"/>
+  <text x="700" y="330" font-family="Arial" font-size="16" fill="#1f618d">JSON match result</text>
+
+  <rect class="note" x="910" y="350" width="170" height="90" rx="10"/>
+  <text class="note-text" x="920" y="375">Contains match percentage,</text>
+  <text class="note-text" x="920" y="395">matched &amp; missing skills,</text>
+  <text class="note-text" x="920" y="415">error details if any.</text>
+
+  <line class="msg" x1="530" y1="390" x2="740" y2="390"/>
+  <text x="600" y="380" font-family="Arial" font-size="16" fill="#1f618d">Persist candidate &amp; application</text>
+
+  <line class="msg" x1="530" y1="430" x2="530" y2="500" stroke="#1f618d" stroke-width="2"/>
+  <text x="560" y="465" font-family="Arial" font-size="16" fill="#1f618d">Evaluate status</text>
+
+  <rect class="activation" x="290" y="500" width="20" height="80"/>
+  <line class="msg" x1="530" y1="500" x2="300" y2="500"/>
+  <text x="410" y="490" font-family="Arial" font-size="16" fill="#1f618d">Render result view</text>
+
+  <line class="msg" x1="300" y1="560" x2="80" y2="560"/>
+  <text x="170" y="550" font-family="Arial" font-size="16" fill="#1f618d">Show match score &amp; feedback</text>
+
+  <line class="lifeline" x1="900" y1="410" x2="900" y2="640"/>
+  <line class="lifeline" x1="740" y1="270" x2="740" y2="640"/>
+
+</svg>
+

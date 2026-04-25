@@ -1,0 +1,98 @@
+@startuml UML Class Diagram - HR AI System
+
+title UML Class Diagram\nHR AI Recruitment System
+
+skinparam backgroundColor #FFFFFF
+skinparam roundcorner 10
+skinparam shadowing false
+skinparam linetype ortho
+skinparam classAttributeIconSize 0
+
+skinparam class {
+    BackgroundColor #FFFFFF
+    BorderColor #000000
+    ArrowColor #000000
+    FontColor #000000
+    FontSize 16
+    BorderThickness 2
+    AttributeFontColor #000000
+    MethodFontColor #000000
+    Padding 10
+}
+
+skinparam arrow {
+    Color #000000
+    Thickness 2
+    Style solid
+}
+
+skinparam arrowFontColor #000000
+skinparam arrowFontSize 14
+
+skinparam title {
+    FontSize 20
+    FontColor #000000
+    Padding 20
+}
+
+class User {
+    +id : int
+    +name : string
+    +email : string
+    +password : string
+    +role : string
+    --
+    +hasRole() : bool
+}
+
+class Job {
+    +id : int
+    +title : string
+    +department : string
+    +description : text
+    +status : string
+    --
+    +applications() : Application[]
+}
+
+class Candidate {
+    +id : int
+    +name : string
+    +email : string
+    +phone : string
+    +cv_path : string
+    --
+    +applications() : Application[]
+}
+
+class Application {
+    +id : int
+    +job_id : int
+    +candidate_id : int
+    +match_score : float
+    +status : string
+    --
+    +job() : Job
+    +candidate() : Candidate
+}
+
+class Employee {
+    +id : int
+    +full_name : string
+    +position : string
+    +department : string
+    +performance_data : json
+}
+
+class AISkillEngine {
+    +analyzeCV() : AnalysisResult
+    +matchSkills() : float
+}
+
+' Relationships
+Job ||--o{ Application : "has many"
+Candidate ||--o{ Application : "applies to"
+Application ..> AISkillEngine : "uses"
+
+@enduml
+

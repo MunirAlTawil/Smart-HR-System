@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="620" viewBox="0 0 900 620">
+  <defs>
+    <style>
+      .actor { font-family: Arial, sans-serif; font-size:18px; fill:#2c3e50; }
+      .usecase { fill:#f5eef8; stroke:#6c3483; stroke-width:2; }
+      .system { fill:#e8f8f5; stroke:#1abc9c; stroke-width:2.5; }
+      .connector { stroke:#34495e; stroke-width:2; }
+    </style>
+  </defs>
+
+  <rect class="system" x="240" y="80" width="520" height="460" rx="20" ry="20"/>
+  <text x="500" y="110" text-anchor="middle" font-family="Arial" font-size="20" fill="#1abc9c">Smart Recruitment System</text>
+
+  <line class="connector" x1="110" y1="170" x2="260" y2="180"/>
+  <line class="connector" x1="110" y1="230" x2="260" y2="230"/>
+  <line class="connector" x1="110" y1="290" x2="260" y2="280"/>
+  <line class="connector" x1="110" y1="350" x2="260" y2="330"/>
+
+  <line class="connector" x1="790" y1="200" x2="640" y2="200"/>
+  <line class="connector" x1="790" y1="250" x2="640" y2="250"/>
+  <line class="connector" x1="790" y1="300" x2="640" y2="300"/>
+  <line class="connector" x1="790" y1="350" x2="640" y2="350"/>
+  <line class="connector" x1="790" y1="400" x2="640" y2="400"/>
+
+  <text class="actor" x="110" y="130" text-anchor="middle">Candidate</text>
+  <circle cx="110" cy="160" r="30" stroke="#2c3e50" stroke-width="2" fill="none"/>
+  <line x1="110" y1="190" x2="110" y2="230" stroke="#2c3e50" stroke-width="2"/>
+  <line x1="110" y1="200" x2="80" y2="230" stroke="#2c3e50" stroke-width="2"/>
+  <line x1="110" y1="200" x2="140" y2="230" stroke="#2c3e50" stroke-width="2"/>
+  <line x1="110" y1="230" x2="90" y2="280" stroke="#2c3e50" stroke-width="2"/>
+  <line x1="110" y1="230" x2="130" y2="280" stroke="#2c3e50" stroke-width="2"/>
+
+  <text class="actor" x="790" y="150" text-anchor="middle">HR Administrator</text>
+  <circle cx="790" cy="180" r="30" stroke="#2c3e50" stroke-width="2" fill="none"/>
+  <line x1="790" y1="210" x2="790" y2="250" stroke="#2c3e50" stroke-width="2"/>
+  <line x1="790" y1="220" x2="760" y2="250" stroke="#2c3e50" stroke-width="2"/>
+  <line x1="790" y1="220" x2="820" y2="250" stroke="#2c3e50" stroke-width="2"/>
+  <line x1="790" y1="250" x2="770" y2="300" stroke="#2c3e50" stroke-width="2"/>
+  <line x1="790" y1="250" x2="810" y2="300" stroke="#2c3e50" stroke-width="2"/>
+
+  <ellipse class="usecase" cx="420" cy="180" rx="120" ry="40"/>
+  <text x="420" y="180" text-anchor="middle" font-family="Arial" font-size="18" fill="#6c3483">Browse Job Listings</text>
+
+  <ellipse class="usecase" cx="420" cy="250" rx="140" ry="42"/>
+  <text x="420" y="245" text-anchor="middle" font-family="Arial" font-size="18" fill="#6c3483">Search &amp; Filter Jobs</text>
+  <text x="420" y="268" text-anchor="middle" font-family="Arial" font-size="16" fill="#6c3483">by Skill, Location, Type</text>
+
+  <ellipse class="usecase" cx="420" cy="320" rx="140" ry="45"/>
+  <text x="420" y="315" text-anchor="middle" font-family="Arial" font-size="18" fill="#6c3483">Submit Application</text>
+  <text x="420" y="338" text-anchor="middle" font-family="Arial" font-size="16" fill="#6c3483">Upload Resume for Analysis</text>
+
+  <ellipse class="usecase" cx="420" cy="400" rx="150" ry="45"/>
+  <text x="420" y="395" text-anchor="middle" font-family="Arial" font-size="18" fill="#6c3483">View Match &amp; Feedback</text>
+  <text x="420" y="418" text-anchor="middle" font-family="Arial" font-size="16" fill="#6c3483">Matched &amp; Missing Skills</text>
+
+  <ellipse class="usecase" cx="580" cy="200" rx="120" ry="38"/>
+  <text x="580" y="200" text-anchor="middle" font-family="Arial" font-size="18" fill="#6c3483">Manage Job Posts</text>
+
+  <ellipse class="usecase" cx="580" cy="260" rx="130" ry="40"/>
+  <text x="580" y="255" text-anchor="middle" font-family="Arial" font-size="18" fill="#6c3483">Review Applications</text>
+  <text x="580" y="280" text-anchor="middle" font-family="Arial" font-size="16" fill="#6c3483">Match Scores &amp; CVs</text>
+
+  <ellipse class="usecase" cx="580" cy="320" rx="138" ry="40"/>
+  <text x="580" y="315" text-anchor="middle" font-family="Arial" font-size="18" fill="#6c3483">Approve or Reject Candidate</text>
+
+  <ellipse class="usecase" cx="580" cy="380" rx="120" ry="38"/>
+  <text x="580" y="385" text-anchor="middle" font-family="Arial" font-size="18" fill="#6c3483">Maintain Candidate Pool</text>
+
+  <ellipse class="usecase" cx="580" cy="440" rx="130" ry="40"/>
+  <text x="580" y="440" text-anchor="middle" font-family="Arial" font-size="18" fill="#6c3483">Handle Contact Messages</text>
+
+</svg>
+
