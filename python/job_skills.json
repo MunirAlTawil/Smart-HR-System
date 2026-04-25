@@ -1,0 +1,175 @@
+{
+  "Data Scientist": [
+    "python",
+    "machine learning",
+    "pandas",
+    "numpy",
+    "statistics",
+    "deep learning",
+    "tensorflow",
+    "keras"
+  ],
+  "Web Developer": [
+    "html",
+    "css",
+    "javascript",
+    "php",
+    "laravel",
+    "react",
+    "nodejs",
+    "mysql",
+    "rest api",
+    "bootstrap",
+    "c#"
+  ],
+  "HR Manager": [
+    "communication",
+    "leadership",
+    "recruitment",
+    "analytics",
+    "strategic planning",
+    "employee relations"
+  ],
+  "Software Engineer": [
+    "java",
+    "python",
+    "c++",
+    "git",
+    "agile",
+    "software development",
+    "database design"
+  ],
+  "Frontend Developer": [
+    "javascript",
+    "react",
+    "vue",
+    "angular",
+    "html",
+    "css",
+    "typescript",
+    "responsive design"
+  ],
+  "Backend Developer": [
+    "python",
+    "java",
+    "nodejs",
+    "mongodb",
+    "mysql",
+    "restful api",
+    "microservices"
+  ],
+  "Full Stack Developer": [
+    "javascript",
+    "python",
+    "react",
+    "nodejs",
+    "mongodb",
+    "mysql",
+    "git"
+  ],
+  "Mobile Developer": [
+    "swift",
+    "kotlin",
+    "react native",
+    "android",
+    "ios",
+    "api integration"
+  ],
+  "DevOps Engineer": [
+    "docker",
+    "kubernetes",
+    "aws",
+    "jenkins",
+    "ci/cd",
+    "linux",
+    "bash"
+  ],
+  "Database Administrator": [
+    "sql",
+    "mysql",
+    "postgresql",
+    "mongodb",
+    "database optimization",
+    "backup and recovery"
+  ],
+  "Network Engineer": [
+    "cisco",
+    "tcp/ip",
+    "firewall",
+    "network security",
+    "routing",
+    "switching"
+  ],
+  "Cybersecurity Specialist": [
+    "penetration testing",
+    "vulnerability assessment",
+    "firewall",
+    "security protocols",
+    "ethical hacking"
+  ],
+  "Project Manager": [
+    "project management",
+    "agile",
+    "scrum",
+    "stakeholder management",
+    "budgeting",
+    "risk management"
+  ],
+  "Business Analyst": [
+    "data analysis",
+    "sql",
+    "excel",
+    "requirements gathering",
+    "process improvement",
+    "stakeholder management"
+  ],
+  "Graphic Designer": [
+    "photoshop",
+    "illustrator",
+    "indesign",
+    "ui/ux design",
+    "branding",
+    "typography"
+  ],
+  "System Administrator": [
+    "linux",
+    "windows server",
+    "active directory",
+    "powershell",
+    "backup",
+    "monitoring"
+  ],
+  "Quality Assurance Engineer": [
+    "testing",
+    "automation",
+    "selenium",
+    "test cases",
+    "bug tracking",
+    "api testing"
+  ],
+  "UI/UX Designer": [
+    "figma",
+    "sketch",
+    "adobe xd",
+    "user research",
+    "wireframing",
+    "prototyping"
+  ],
+  "Data Analyst": [
+    "sql",
+    "python",
+    "excel",
+    "data visualization",
+    "statistics",
+    "reporting"
+  ],
+  "Cloud Engineer": [
+    "aws",
+    "azure",
+    "gcp",
+    "terraform",
+    "cloud architecture",
+    "serverless"
+  ]
+}
+
